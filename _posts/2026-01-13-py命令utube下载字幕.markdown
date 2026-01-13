@@ -1,0 +1,12 @@
+## 如何下载utube视频的字幕
+因为有一些字幕不是用户上传的所以需要先下载音频，然后再转字幕
+注意：先翻墙 再执行
+```
+
+# 1. 只下音频
+yt-dlp  --cookies-from-browser chrome -f bestaudio -o audio.mp3 "https://www.youtube.com/watch?v=3MIIG-Nismg"
+
+# 2. 用 Whisper 转字幕
+whisper audio.mp3 --language en --output_format srt
+
+```
