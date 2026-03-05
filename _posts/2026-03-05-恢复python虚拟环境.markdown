@@ -1,0 +1,39 @@
+---
+title: 恢复python的虚拟环境
+
+date: 2026-03-03 00:00:00 +08:00
+
+modified: 2026-03-03 00:00:00 +08:00
+
+tags: [Python env]
+---
+## 虚拟环境
+
+Python 标准库自带的虚拟环境工具，从 Python 3.3 开始提供。
+python3 -m venv venv 创建了的虚拟环境
+但是source /bin/activate 确报错找不到python
+
+## 排查问题过程
+
+```
+readlink xenv/bin/python #查看这个文件是不是一个符号链接
+输出
+/Users/chenchenqi/opt/miniconda3/bin/python
+
+说明 python虚拟环境是用miniconda的python
+
+xenv/bin/python  →  miniconda3/bin/python
+```
+
+## 结果
+
+删除了miniconda文件后，就导致了找不到python（miniconda3/bin/python路径）
+
+
+
+## 一些其他恢复虚拟环境的经验
+
+如果想准确的知道python的位置，可以使用：
+python -c "import sys;print(sys.executable)"
+
+python的包是安装在site-packages中的，可以新建一个环境，把site-packages粘过去，以恢复python包
