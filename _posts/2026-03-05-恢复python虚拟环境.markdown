@@ -33,7 +33,11 @@ xenv/bin/python  →  miniconda3/bin/python
 
 ## 一些其他恢复虚拟环境的经验
 
-如果想准确的知道python的位置，可以使用：
+1 如果想准确的知道python的位置，可以使用：
 python -c "import sys;print(sys.executable)"
 
-python的包是安装在site-packages中的，可以新建一个环境，把site-packages粘过去，以恢复python包
+2.python的包是安装在site-packages中的，可以新建一个环境，把site-packages粘过去，以恢复python包
+
+3.创建虚拟环境时候要明确用的是哪个python，可以指定python
+
+/opt/homebrew/bin/python3.10 -m venv xenv
